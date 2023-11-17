@@ -45,8 +45,11 @@ class Model:
         response = get(url+str(video_id), cookies=cookies, headers=headers)
         soup = BeautifulSoup(response.content, 'html.parser')
 
-        youtube_link = soup.find('iframe', class_='video-iframe').get('src')
-        youtube_link = re.sub(r'\?.*', '', youtube_link)
+        try:
+            youtube_link = soup.find('iframe', class_='video-iframe').get('src')
+            youtube_link = re.sub(r'\?.*', '', youtube_link)
+        except AttributeError:
+            return 'video Notfound !'
 
         youtube = YouTube(youtube_link)
 
