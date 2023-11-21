@@ -1,0 +1,68 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+main {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 25px;
+}
+
+
+/* 
+items
+*/
+  video.video-player {
+    width: 50%;
+  }
+
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    width: 16%;
+    /* margin: 20px; */
+  }
+
+  .accordion-item {
+    margin-bottom: 5px;
+    overflow: hidden; /* Evita que o conteúdo transborde durante a animação */
+  }
+
+  .accordion-item label {
+    background-color: #f4f4f4;
+    display: block;
+    padding: 10px;
+    user-select: none;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Adiciona uma transição suave na mudança de cor de fundo */
+  }
+
+  .accordion-item input {
+    display: none;
+  }
+
+  .accordion-item div {
+    display: none;
+    padding: 10px;
+    /* transition: opacity 0.3s; Adiciona uma transição suave na mudança de opacidade */
+    transition: max-height 1s ease-out;
+  }
+
+  .accordion-item input:checked + div {
+    display: block;
+    opacity: 1;
+    transition: max-height 1s ease-out;
+  }
+
+  .accordion-item input:checked + label {
+    background-color: #ddd;
+  }
+
+  /* Adiciona uma transição suave na mudança de altura da div */
+  .accordion-item input:not(:checked) + div {
+    transition: max-height 1s ease-out;
+  }
