@@ -1,6 +1,9 @@
 
 from model.model import Model
 from quart import Quart, render_template
+import asyncio
+from hypercorn.config import Config
+from hypercorn.asyncio import serve
 
 model = Model()
 app = Quart(__name__)
@@ -21,4 +24,4 @@ async def get_video(id):
 
 
 if __name__ == '__main__':
-    app.run()
+    asyncio.run(serve(app, Config()))
