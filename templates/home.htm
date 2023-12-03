@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <link rel="icon" href="../static/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     <link rel="stylesheet" href="../static/css/home.css">
+    <title>Home</title>
 </head>
 <body>
 
@@ -14,27 +16,22 @@
     
     
   <main>
-    <video class="video-player" controls>
-      <source src="https://player.vimeo.com/external/399112344.sd.mp4?s=d8d5759a1c06e3faabd58e1442ea424483d535b2&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
-    </video>
+    <video id="player" playsinline controls></video>
 
-
-    <div class="accordion">
-      <div class="accordion-item">
-        <label for="section1">Seção 1</label>
-        <input type="checkbox" id="section1">
-        <div>
-          <p>Conteúdo da Seção 1 aqui.</p>
-        </div>
-      </div>
-  
-      <div class="accordion-item">
-        <label for="section2">Seção 2</label>
-        <input type="checkbox" id="section2">
-        <div>
-          <p>Conteúdo da Seção 2 aqui.</p>
-        </div>
-    </div>
+    <section class="demo">
+      {{ items | safe }}
+      <!-- <header class="squeezhead">
+        <p> Title 1 </p>
+      </header>
+      <div class="squeezecnt" id="squeezecnt">
+        <p>
+          <span class="aula" id="2078932" >Aula 1</span>
+          <span class="aula" id="2084095" >Aula 2</span>
+          <span class="aula" id="2084096" >Aula 3</span>
+          <span class="aula" id="2084264" >Aula 4</span>
+        </p>
+      </div> -->
+    </section>
 
   </main>
 
@@ -45,10 +42,13 @@
 
 
 
-   
 
 
 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="../static/plugins/Squeezebox-accordionJS/squeezebox.min.js"></script>
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
   <script src="../static/js/home.js"></script>
 </body>
 </html>
