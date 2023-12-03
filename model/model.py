@@ -12,7 +12,7 @@ class Model:
                 <header class="squeezhead">
                     <p> {{ title }} </p>
                 </header>
-                <div class="squeezecnt">
+                <div class="squeezecnt" id="squeezecnt">
                     <p>
                         {% for aula in aulas %}
                             <span class="aula" id="{{ aula[1] }}">{{ aula[0] }}</span>
