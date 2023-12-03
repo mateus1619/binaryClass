@@ -5,12 +5,15 @@ $('.demo').squeezebox({
 });
 
 
+player = new Plyr('#player');
+
 
 // quando clicar em algum item no accordion
 accordion = document.getElementById('squeezecnt')
 accordion.addEventListener('click', (e)=>{
 
   (async () =>{
+    let id = e.target.id
     try {
       const response = await fetch('/videos/' + id.toString());
 
@@ -20,13 +23,10 @@ accordion.addEventListener('click', (e)=>{
 
       const data = await response.json();
 
-      let id = e.target.id
       let videoSources = new Array();
       let videoQuality = new Array();
 
       for(const element of data.videos){
-        // fps = element.fps
-        // progressive = element.progressive
         reso = element.resolution
         url = element.url
 
@@ -34,14 +34,7 @@ accordion.addEventListener('click', (e)=>{
         videoQuality.push(parseInt(reso))
       }
 
-      const player = new Plyr('#player', {
-        quality: {
-          default: 360,
-          options: videoQuality
-        }
-      });
-      player.config.quality = {default: 360,options: [720, 360]}
-      console.log(player)
+      player.quality = [720, 360]
       player.source = {
         type: 'video',
         title: 'Example title',
@@ -57,11 +50,3 @@ accordion.addEventListener('click', (e)=>{
   })();
 
 });
-
-// const player = new Plyr('#player', {
-
-// });
-
-
-// Expose player so it can be used from the console
-// window.player = player;
