@@ -10,7 +10,7 @@ player = new Plyr('#player');
 
 // quando clicar em algum item no accordion
 accordion = document.getElementById('squeezecnt')
-accordion.addEventListener('click', (e)=>{
+accordion.click = (e) => {
 
   (async () =>{
     let id = e.target.id
